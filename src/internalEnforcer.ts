@@ -24,13 +24,7 @@ export class InternalEnforcer extends CoreEnforcer {
   /**
    * addPolicyInternal adds a rule to the current policy.
    */
-  protected async addPolicyInternal(
-    sec: string,
-    ptype: string,
-    rule: string[],
-    useWatcher: boolean,
-    useAdapter: boolean
-  ): Promise<boolean> {
+  protected async addPolicyInternal(sec: string, ptype: string, rule: string[], useWatcher: boolean, useAdapter: boolean): Promise<boolean> {
     if (this.model.hasPolicy(sec, ptype, rule)) {
       return false;
     }
@@ -66,13 +60,7 @@ export class InternalEnforcer extends CoreEnforcer {
 
   // addPolicies adds rules to the current policy.
   // removePolicies removes rules from the current policy.
-  protected async addPoliciesInternal(
-    sec: string,
-    ptype: string,
-    rules: string[][],
-    useWatcher: boolean,
-    useAdapter: boolean
-  ): Promise<boolean> {
+  protected async addPoliciesInternal(sec: string, ptype: string, rules: string[][], useWatcher: boolean, useAdapter: boolean): Promise<boolean> {
     for (const rule of rules) {
       if (this.model.hasPolicy(sec, ptype, rule)) {
         return false;
@@ -162,13 +150,7 @@ export class InternalEnforcer extends CoreEnforcer {
   /**
    * removePolicyInternal removes a rule from the current policy.
    */
-  protected async removePolicyInternal(
-    sec: string,
-    ptype: string,
-    rule: string[],
-    useWatcher: boolean,
-    useAdapter: boolean
-  ): Promise<boolean> {
+  protected async removePolicyInternal(sec: string, ptype: string, rule: string[], useWatcher: boolean, useAdapter: boolean): Promise<boolean> {
     if (!this.model.hasPolicy(sec, ptype, rule)) {
       return false;
     }
@@ -202,13 +184,7 @@ export class InternalEnforcer extends CoreEnforcer {
   }
 
   // removePolicies removes rules from the current policy.
-  protected async removePoliciesInternal(
-    sec: string,
-    ptype: string,
-    rules: string[][],
-    useWatcher: boolean,
-    useAdapter: boolean
-  ): Promise<boolean> {
+  protected async removePoliciesInternal(sec: string, ptype: string, rules: string[][], useWatcher: boolean, useAdapter: boolean): Promise<boolean> {
     for (const rule of rules) {
       if (!this.model.hasPolicy(sec, ptype, rule)) {
         return false;
